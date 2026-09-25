@@ -1,13 +1,13 @@
 # Repository guidance
 
-This repository is a collection of independently installable skills for Chinese-language engineering planning, technical review, metric decisions, and management reporting.
+This repository is a collection of independently installable skills for frontline engineering analysis and decision support: technical planning, technical review, metric decisions, project retrospectives, and evidence-based reporting. Keep it focused on bounded engineering work; it is not a general people-management or team-health assistant.
 
 ## Source of truth
 
-- `README.md` is the repository catalog and installation guide.
+- `README.md` is the user-facing catalog and installation guide. Keep internal research and process history out of its primary path.
 - `agent/` owns rules shared across multiple skills. Keep each shared rule in one canonical document; skills operationalize those rules and link back to them.
 - `skills/<skill-name>/SKILL.md` is the standalone entrypoint. Keep skill-specific references, templates, eval cases, and scripts with that skill so it can be installed independently.
-- `docs/research/` stores cited repository research. `docs/superpowers/` stores design and implementation records for this repository.
+- `docs/archive/` stores internal research, evaluations, blog drafts, and design/implementation history. Preserve Git history; do not expose these records as the main user entry point.
 
 ## Change rules
 

@@ -18,6 +18,6 @@ license: MIT
 
 ## 输出与参考
 
-按评审场景选择简洁格式；无需固定提问数量、问题数量或汇报模板。只有用户要求时才重写原方案。需要问题检查清单时读 [评审问题库](references/interrogation_snippets.md)；需要汇报表达时读 [汇报结构参考](references/presentation_template.md)；需要示例时读 [评审示例](references/good_bad_examples.md)。
+按评审场景选择简洁格式；无需固定提问数量、问题数量或汇报模板。只有用户要求时才重写原方案。需要问题检查清单时读 [评审问题库](references/interrogation_snippets.md)；需要汇报表达时读 [汇报结构参考](references/presentation_template.md)；需要示例时读 [评审示例](references/good_bad_examples.md)；用户询问方法依据时读 [方法来源与边界](references/method-sources.md)。
 
 评审问题的字段和严重度遵循仓库的 `agent/decision-and-review-contract.md`（单独安装时按本 skill 前述字段执行）。保持直接、专业、可商量；事实不充分时明确不确定性，不用尖锐语气替代证据。

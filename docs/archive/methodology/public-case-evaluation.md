@@ -8,7 +8,7 @@ This note records one matched run of the four skills on public-source cases, the
 
 - Four first-party sources: [GitHub's gh-ost announcement](https://github.blog/news-insights/company-news/gh-ost-github-s-online-migration-tool-for-mysql/), [GitLab's MR Rate discussion](https://about.gitlab.com/blog/measuring-engineering-productivity-at-gitlab/), [GitHub's schema migration workflow](https://github.blog/enterprise-software/automation/automating-mysql-schema-migrations-with-github-actions-and-more/), and [Google SRE's satellite incident postmortem](https://sre.google/workbook/postmortem-culture/).
 - Each exact prompt includes the relevant paraphrased public facts and source URL. Baseline and skill runs used the same supplied information and did not browse during generation; this avoids giving one condition extra evidence.
-- Separate agents produced baseline and skill answers. An independent evaluator scored the paired answers with [`agent/eval-rubric.md`](../../agent/eval-rubric.md): fact restraint, task match, actionability, format, and tone, each 0–2. The scoring was independent but not blind to condition.
+- Separate agents produced baseline and skill answers. An independent evaluator scored the paired answers with [`agent/eval-rubric.md`](../../../agent/eval-rubric.md): fact restraint, task match, actionability, format, and tone, each 0–2. The scoring was independent but not blind to condition.
 - One response per condition and case is exploratory. It is not a controlled study and cannot show general or causal effectiveness.
 
 ## First run

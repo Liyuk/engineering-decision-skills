@@ -41,4 +41,4 @@ Unknown metrics must be marked to confirm with formula and missing inputs. Estim
 
 Every skill has at least one missing-information case, one conflicting-information case, and one normal case. Score fact restraint, task match, actionability, format, and tone calibration from 0 to 2. A case passes at 8/10 only when fact restraint is 2 and no unsupported claim remains. Static validation verifies structure and links, not behavioral quality.
 
-The source mapping and per-article method distillation live in [`docs/methodology/writing-to-skills-map.md`](../../methodology/writing-to-skills-map.md); the shared score anchors live in [`agent/eval-rubric.md`](../../../agent/eval-rubric.md).
+The source mapping and per-article method distillation live in [`docs/methodology/writing-to-skills-map.md`](../../methodology/writing-to-skills-map.md); the shared score anchors live in [`agent/eval-rubric.md`](../../../../agent/eval-rubric.md).

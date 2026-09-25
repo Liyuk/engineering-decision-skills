@@ -1,6 +1,6 @@
 # Decision and review contract
 
-This contract captures shared behavior for planning, technical review, and reporting skills. It is a source of truth for future skill revisions; each skill should apply only the parts relevant to its task.
+This contract captures shared evidence handling for the repository's planning, metric, review, retrospective, and reporting skills. It is a source of truth for future revisions; each skill should apply only the parts relevant to its task.
 
 ## Evidence states
 

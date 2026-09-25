@@ -1,6 +1,6 @@
 ---
 name: eng-reporting
-description: Use when turning notes, meeting records, project evidence, or engineering achievements into a management update, project summary, retrospective, self-review, or promotion narrative.
+description: Use when turning notes, meeting records, established project conclusions, or engineering achievements into a management update, project summary, self-review, or promotion narrative.
 license: MIT
 compatibility: 适用于可读取文档、妙记摘要、文本笔记和本地参考文件的 Agent 环境，适合结构化写作、材料提炼和叙事重组任务。
 metadata:
@@ -11,7 +11,7 @@ metadata:
 
 # Engineering Reporting
 
-将原始工作材料重组为适合汇报、总结、复盘、述职和晋升场景的高质量结构化内容。
+将原始工作材料重组为适合汇报、总结、述职和晋升场景的高质量结构化内容；也可把已经形成结论的复盘改写成面向特定读者的材料。
 
 ## 何时使用
 
@@ -20,9 +20,11 @@ metadata:
 - 把零散笔记整理成管理汇报
 - 把项目过程材料整理成阶段总结
 - 把会议纪要、妙记或录屏提炼成老板可快速扫读的摘要
-- 把项目复盘改写成向上汇报版本
+- 把已经形成结论的项目复盘改写成向上汇报版本
 - 把成果条目、项目经历整理成自评或晋升材料
 - 从执行记录中提炼影响力、复杂度、方法论和能力成长
+
+当用户需要分析已完成工作的系统模式、判断因果并决定下次保留/改变/停止什么时，使用 `management-retro`；本 Skill 只负责把已经形成的复盘结论改写成适合读者的材料。
 
 ## 本 Skill 适合产出的内容
 
@@ -31,7 +33,7 @@ metadata:
 - 管理汇报
 - 高管摘要
 - 项目总结
-- 复盘材料
+- 基于既有复盘结论的管理材料
 - 自评材料
 - 晋升材料
 - 用于绩效、述职或答辩的代表案例叙事
@@ -52,7 +54,7 @@ metadata:
    - 高管摘要
    - 自评材料
    - 晋升材料
-   - 项目复盘
+   - 已完成结论的项目复盘改写
 
 2. 提取源材料中的关键信号，并记录来源、时间、口径和证据状态。
    重点提取：
