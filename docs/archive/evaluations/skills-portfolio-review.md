@@ -30,7 +30,7 @@ The packages can structure supplied information and expose missing evidence. The
 
 The source writing contains more method than any skill entrypoint can responsibly load on every task. The planning reference preserves its ten-part reasoning map as an on-demand map, not a mandatory answer template.
 
-The management retrospective's eight judgments now have a dedicated workflow in `management-retro`; they are preserved as selective lenses in the author's stated order, not fixed report sections. The structured-thinking article's five lenses remain distributed across relevant skills rather than being forced into another overlapping invocation. See [`writing-to-skills-map.md`](writing-to-skills-map.md) and [`management-retro-evaluation.md`](management-retro-evaluation.md) for the mapping and its limits.
+The management retrospective's eight judgments now have a dedicated workflow in `management-retro`; they are preserved as selective lenses in the author's stated order, not fixed report sections. The structured-thinking article's five lenses remain distributed across relevant skills rather than being forced into another overlapping invocation. See [`writing-to-skills-map.md`](../decisions/writing-to-skills-map.md) and [`management-retro-evaluation.md`](management-retro-evaluation.md) for the mapping and its limits.
 
 ## Discussion group findings
 

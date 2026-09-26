@@ -37,9 +37,9 @@ $metric-decision
 
 ### 方法来源与评测
 
-这些方法来自我对技术规划、指标定义、周期统计与复盘、信息同步和工程规范的持续写作。转成 Skill 时，我保留原文中的判断顺序和问题结构，同时把证据状态、未知、冲突、评审发现格式和边界用例写成可检查的指令。管理复盘保留原文“八个判断”的次序，但作为按情境选用的分析视角，而不是每次都要填满的报告章节。原文到技能的映射见[方法映射](../methodology/writing-to-skills-map.md)。
+这些方法来自我对技术规划、指标定义、周期统计与复盘、信息同步和工程规范的持续写作。转成 Skill 时，我保留原文中的判断顺序和问题结构，同时把证据状态、未知、冲突、评审发现格式和边界用例写成可检查的指令。管理复盘保留原文“八个判断”的次序，但作为按情境选用的分析视角，而不是每次都要填满的报告章节。原文到技能的映射见[方法映射](../decisions/writing-to-skills-map.md)。
 
-仓库目前五项技能共 **38 个评测 prompt**。其中包括基于 GitHub、GitLab 与 Google SRE 一手材料设计的案例、每项技能的正常/缺数据/冲突用例，以及 `management-retro` 的匹配基线与技能对照。评测记录包括首轮失败、针对性修订和回归结果；这些是小样本、单轮人工量规检查，不是盲测，也不能证明跨模型或真实业务效果。具体样本、评分和限制见[组合评审](../methodology/skills-portfolio-review.md)、[公开案例评测](../methodology/public-case-evaluation.md)和[`management-retro` 评测](../methodology/management-retro-evaluation.md)。
+仓库目前五项技能共 **39 个评测 prompt**。其中包括基于 GitHub、GitLab 与 Google SRE 一手材料设计的案例、每项技能的正常/缺数据/冲突用例，以及 `management-retro` 的匹配基线与技能对照。评测记录包括首轮失败、针对性修订和回归结果；这些是小样本、单轮人工量规检查，不是盲测，也不能证明跨模型或真实业务效果。具体样本、评分和限制见[组合评审](../evaluations/skills-portfolio-review.md)、[公开案例评测](../evaluations/public-case-evaluation.md)和[`management-retro` 评测](../evaluations/management-retro-evaluation.md)。
 
 我想探索的不是让 AI 扮演一个无所不知的强势管理者，而是把在工程实践中有用的判断过程变得可调用、可检查、可修订。
 
@@ -57,5 +57,5 @@ $metric-decision
 
 - GitHub 远端 `Liyuk/engineering-decision-skills` 目前公开，根仓库和五个独立 skill 均采用 MIT。
 - Codex 已完成发现与复制安装烟雾检查。Claude Code 等其他 Agent 尚未逐一验证触发和输出行为。
-- “38 个 prompt”指五份 `evals/evals.json` 中的案例总数，不等于 38 个都做过基线对照。`management-retro` 的 8 个用例中，3 个有匹配基线，其余 5 个为技能应用/路由检查；其他评测的设计和局限见上方链接。
+- “39 个 prompt”指五份 `evals/evals.json` 中的案例总数，不等于 39 个都做过基线对照。`management-retro` 的 8 个用例中，3 个有匹配基线，其余 5 个为技能应用/路由检查；其他评测的设计和局限见上方链接。
 - `public-case-evaluation.md` 记录四项原有技能在四个公开案例上的一轮比较，以及规划/汇报两项回归；它不是五项技能的统一比较批次。

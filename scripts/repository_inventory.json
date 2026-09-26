@@ -1,0 +1,9 @@
+{
+  "skill_count": 5,
+  "eval_count": 39,
+  "required_eval_categories": [
+    "normal",
+    "missing-information",
+    "conflicting-information"
+  ]
+}

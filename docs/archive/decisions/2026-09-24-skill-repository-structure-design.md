@@ -4,7 +4,7 @@
 
 ## 后续状态
 
-本设计记录保留当时关于许可证尚未统一的判断。用户随后决定将整个仓库统一采用 MIT；该决定由 [ADR 0003](../../../../agent/adr/0003-repository-wide-mit-license.md) 记录，并取代下文的临时许可方案。
+本设计记录保留当时关于许可证尚未统一的判断。用户随后决定将整个仓库统一采用 MIT；该决定由 [ADR 0003](../../../agent/adr/0003-repository-wide-mit-license.md) 记录，并取代下文的临时许可方案。
 
 ## 目标
 
@@ -43,8 +43,8 @@ skills/
     scripts/
 docs/
   research/github-similar-skill-repositories.md
-  superpowers/specs/
-  superpowers/plans/
+  decisions/
+  plans/
 scripts/validate_repo.py
 ```
 
@@ -55,14 +55,14 @@ scripts/validate_repo.py
 - `agent/` 是跨技能共用规则的唯一来源；每个 skill 负责执行适用部分，并保留自身参考文件。
 - `skills/<name>/` 是可单独安装的包，目录名必须与 `SKILL.md` frontmatter 中的 `name` 相同。
 - 每项技能当前已有的 references、assets、evals 和 scripts 随技能保留。
-- `docs/research/` 保存社区对标研究；`docs/superpowers/` 保存本仓库的结构设计与实施记录。
+- `docs/archive/research/` 保存社区对标研究；`docs/archive/decisions/` 和 `docs/archive/plans/` 保存本仓库的结构设计与实施记录。
 - `scripts/validate_repo.py` 只做结构、name、现有 eval JSON 和 Markdown 本地链接的静态检查；它不判断技能输出是否有效。
 
 ## 本轮范围
 
 1. 初始化本地 Git 元数据和忽略规则，不配置远端、不推送、不发布。
 2. 将技能目录移动到 `skills/`，保持 skill 名称和内容不变。
-3. 将社区研究报告归入 `docs/research/`。
+3. 将社区研究报告归入 `docs/archive/research/`。
 4. 增加仓库 README、AGENTS、共用证据/评审契约、结构 ADR 和轻量验证脚本。
 5. 本次目录结构调整不更改三个 skill 的正文和既有 eval，不增加新技能，不新增根级 router skill，不解决许可证授权。后续功能和方法论扩展由单独设计记录维护。
 

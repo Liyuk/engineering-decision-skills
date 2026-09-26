@@ -94,7 +94,7 @@ docs/
 
 ## 后续设计状态
 
-这份报告记录社区对标与初始差距。之后已将技能目录缩短为 `$tech-planning`、`$tech-review`、`$eng-reporting`，并新增 `$metric-decision`。当前文章到技能的方法映射、边界和评测要求见 [`docs/methodology/writing-to-skills-map.md`](../methodology/writing-to-skills-map.md) 和 [`docs/superpowers/specs/2026-09-24-methodology-derived-skills-design.md`](../superpowers/specs/2026-09-24-methodology-derived-skills-design.md)。
+这份报告记录社区对标与初始差距。之后已将技能目录缩短为 `$tech-planning`、`$tech-review`、`$eng-reporting`，并新增 `$metric-decision`。当前文章到技能的方法映射、边界和评测要求见 [`docs/archive/decisions/writing-to-skills-map.md`](../decisions/writing-to-skills-map.md) 和 [`docs/archive/decisions/2026-09-24-methodology-derived-skills-design.md`](../decisions/2026-09-24-methodology-derived-skills-design.md)。
 
 ## 一手来源
 

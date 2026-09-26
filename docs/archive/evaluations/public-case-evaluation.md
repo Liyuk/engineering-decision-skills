@@ -2,7 +2,7 @@
 
 Date: 2026-09-24
 
-This note records one matched run of the four skills on public-source cases, the independent rubric review, and targeted regression runs after fixing two observed failures. The source notes and exact reproducible prompts are in [`docs/research/public-case-materials.md`](../research/public-case-materials.md) and each skill's `evals/evals.json`.
+This note records one matched run of the four skills on public-source cases, the independent rubric review, and targeted regression runs after fixing two observed failures. The source notes and exact reproducible prompts are in [`docs/archive/research/public-case-materials.md`](../research/public-case-materials.md) and each skill's `evals/evals.json`.
 
 ## Method
 

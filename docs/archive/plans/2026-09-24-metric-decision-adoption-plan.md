@@ -6,7 +6,7 @@
 
 **Tech Stack:** Agent Skills (`SKILL.md`), Markdown, JSON eval cases, Python validation, Vercel `skills` CLI for local discovery/install compatibility checks.
 
-**Spec:** `docs/superpowers/specs/2026-09-24-methodology-derived-skills-design.md`
+**Spec:** `docs/archive/decisions/2026-09-24-methodology-derived-skills-design.md`
 
 ## Review Focus
 
@@ -58,7 +58,7 @@
 
 - Static repository validation passed for all four skill entrypoints, names, eval JSON files, and local Markdown links.
 - Skills CLI listed the local package as one skill and copied it into a temporary Codex skills directory; installed and source entrypoint files matched.
-- Missing-data and conflicting-denominator comparisons passed the five-part rubric at 10/10 with the skill. No-skill baselines scored approximately 6/10 and 8/10, respectively; see [`metric-decision-evaluation.md`](../../methodology/metric-decision-evaluation.md) for the limitations and observed evidence.
+- Missing-data and conflicting-denominator comparisons passed the five-part rubric at 10/10 with the skill. No-skill baselines scored approximately 6/10 and 8/10, respectively; see [`metric-decision-evaluation.md`](../evaluations/metric-decision-evaluation.md) for the limitations and observed evidence.
 - Normal minimum-design case scored 10/10 both with and without the skill. The skill response more tightly followed the one-primary-metric / minimum-event-set / one-quality-check shape; this is a fit improvement, not a score gain.
 - Causal-boundary case scored 10/10 with and without the skill. The skill made evidence status and confirm/reject criteria more explicit, with no rubric score gain.
 - The shared rubric now includes concrete 0/1/2 calibration anchors for a causal-boundary scenario. These evaluations still use one sample per condition and are agent-scored, not a blinded human or multi-model study.
@@ -70,4 +70,4 @@ When this plan was written, the repository had no configured public remote, the 
 
 ## Subsequent licensing decision
 
-This plan records the release boundary at the time it was written. The user later chose MIT for the entire repository; [ADR 0003](../../../../agent/adr/0003-repository-wide-mit-license.md) and the root `LICENSE` supersede the provisional per-skill licensing status above. GitHub currently reports the repository as public; visibility is a separate setting from the license decision.
+This plan records the release boundary at the time it was written. The user later chose MIT for the entire repository; [ADR 0003](../../../agent/adr/0003-repository-wide-mit-license.md) and the root `LICENSE` supersede the provisional per-skill licensing status above. GitHub currently reports the repository as public; visibility is a separate setting from the license decision.

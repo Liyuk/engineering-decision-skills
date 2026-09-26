@@ -6,6 +6,7 @@
 - Added a concise, scope-qualified methods reference for `tech-review`.
 - Added three public-source case reports showing the distinct output of each skill for technical managers and senior Tech Leads.
 - Clarified the collection as five task-focused capabilities drawn from frontline technical-manager and senior Tech Lead work.
+- The current working tree contains 39 scenario prompts across the five skills; these are exploratory evaluation cases, not a general efficacy claim.
 
 ## v1.0.0 — 2026-09-24
 

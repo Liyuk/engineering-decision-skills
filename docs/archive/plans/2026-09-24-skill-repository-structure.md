@@ -2,13 +2,13 @@
 
 **Goal:** Structure the three independent skills as a local, maintainable skill collection.
 
-**Spec:** `docs/superpowers/specs/2026-09-24-skill-repository-structure-design.md`
+**Spec:** `docs/archive/decisions/2026-09-24-skill-repository-structure-design.md`
 
 ## Completed
 
 - [x] Added `.gitignore` and initialized local Git metadata; no remote configured.
 - [x] Moved the three skill packages into `skills/`, retaining each package's existing files and frontmatter name.
-- [x] Moved the community research report to `docs/research/`.
+- [x] Moved the community research report to `docs/archive/research/`.
 - [x] Added root `README.md` and `AGENTS.md`.
 - [x] Added shared decision/review contract and collection-layout ADR under `agent/`.
 - [x] Added `scripts/validate_repo.py` for skill entrypoints, names, eval JSON, and relative Markdown links.

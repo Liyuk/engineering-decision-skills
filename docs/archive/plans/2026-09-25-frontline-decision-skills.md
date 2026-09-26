@@ -8,7 +8,7 @@
 
 **Tech Stack:** Markdown、Agent Skills、JSON eval cases、Python repository validator。
 
-**Spec:** `docs/superpowers/specs/2026-09-25-frontline-decision-skills-design.md`
+**Spec:** `docs/archive/decisions/2026-09-25-frontline-decision-skills-design.md`
 
 ## Global Constraints
 
@@ -31,9 +31,9 @@
 ### Task 1: 固化验收用例与文档基线
 
 **Files:**
-- Read: `docs/superpowers/specs/2026-09-25-frontline-decision-skills-design.md`
+- Read: `docs/archive/decisions/2026-09-25-frontline-decision-skills-design.md`
 - Test: `skills/*/evals/evals.json`
-- Read: `docs/methodology/skills-portfolio-review.md`, `docs/blog/project-module.md`
+- Read: `docs/archive/evaluations/skills-portfolio-review.md`, `docs/archive/publication/project-module.md`
 
 - [x] 核对五项技能各有正常、缺数据、冲突信息用例，并记录现有样本限制。
 - [x] 对照 README、博客草稿和调研报告查找过时数量及不一致定位。
@@ -43,8 +43,8 @@
 
 **Files:**
 - Modify: `README.md`
-- Modify: `docs/methodology/skills-portfolio-review.md`
-- Modify: `docs/research/2026-09-25-github-demand-utility-review.md`
+- Modify: `docs/archive/evaluations/skills-portfolio-review.md`
+- Modify: `docs/archive/research/2026-09-25-github-demand-utility-review.md`
 
 - [x] 将目标用户写为一线工程工作参与者，将产品价值写为辅助分析/决策。
 - [x] 用五个“用户问题→技能输出”展示用途，声明技能独立使用而非固定流程。
@@ -59,7 +59,7 @@
 - Modify if needed: `skills/metric-decision/SKILL.md`
 - Modify if needed: `skills/management-retro/SKILL.md`
 - Modify if needed: `skills/eng-reporting/SKILL.md`
-- Modify if needed: `docs/methodology/writing-to-skills-map.md`
+- Modify if needed: `docs/archive/decisions/writing-to-skills-map.md`
 
 - [x] 检查触发描述是否对应可识别的具体工作，不靠宽泛“管理”关键词唤起。
 - [x] 保留每篇个人写作对应的方法与边界；八个复盘判断仍为选择性分析视角。
@@ -69,9 +69,9 @@
 ### Task 4: 更新可发布项目介绍
 
 **Files:**
-- Modify: `docs/blog/project-module.md`
-- Read: `docs/methodology/public-case-evaluation.md`
-- Read: `docs/methodology/management-retro-evaluation.md`
+- Modify: `docs/archive/publication/project-module.md`
+- Read: `docs/archive/evaluations/public-case-evaluation.md`
+- Read: `docs/archive/evaluations/management-retro-evaluation.md`
 
 - [x] 改为五项能力，并以一线工程判断为主线。
 - [x] 更新 prompt 总数、配对样例数量、已知失败修复及评测限制。
@@ -81,8 +81,8 @@
 
 **Files:**
 - Read: `skills/*/evals/evals.json`
-- Read: `docs/methodology/skills-portfolio-review.md`
-- Create: `docs/methodology/2026-09-25-portfolio-acceptance.md`
+- Read: `docs/archive/evaluations/skills-portfolio-review.md`
+- Create: `docs/archive/evaluations/2026-09-25-portfolio-acceptance.md`
 - Modify: `README.md`
 
 - [x] 复核五份 eval 套件共 38 项，每项至少有缺信息、冲突信息、正常任务案例。

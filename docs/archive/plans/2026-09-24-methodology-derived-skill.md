@@ -6,7 +6,7 @@
 
 **Tech Stack:** Markdown, YAML frontmatter, JSON eval cases, Python repository validator.
 
-**Spec:** `docs/superpowers/specs/2026-09-24-methodology-derived-skills-design.md`
+**Spec:** `docs/archive/decisions/2026-09-24-methodology-derived-skills-design.md`
 
 ## Completion
 
