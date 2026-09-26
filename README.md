@@ -1,6 +1,31 @@
 # Engineering Decision Skills
 
+[![Validate](https://github.com/Liyuk/engineering-decision-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Liyuk/engineering-decision-skills/actions/workflows/validate.yml)
+
 > 把混乱的工程讨论，变成有证据边界、可作决定、能继续验证的判断。
+
+## English summary
+
+Engineering Decision Skills is a small, experimental toolkit for evidence-bounded engineering decisions. It helps technical managers and Tech Leads separate facts, measurements, estimates, inferences, assumptions, and unknowns before turning a metric change, proposal, roadmap, retrospective, or management update into a decision.
+
+The five skills are independently installable. Start with [`metric-decision`](skills/metric-decision/SKILL.md) when a number is driving a decision, or [`tech-review`](skills/tech-review/SKILL.md) when an existing proposal needs an evidence and delivery-readiness review. The repository is currently Chinese-first and has been behavior-smoke-tested primarily with Codex; the cases and limitations are documented rather than presented as proof of general model efficacy.
+
+## 5 分钟上手
+
+先安装一个最贴近当前问题的 Skill：
+
+```sh
+npx skills add Liyuk/engineering-decision-skills --skill metric-decision --agent codex --global
+```
+
+然后把真实问题直接交给它：
+
+```text
+$metric-decision
+保存成功率从 98% 降到 93%，但同一周迁移了埋点。请说明现在能得出什么、哪些解释仍未确认、下一步怎么验证。
+```
+
+想先看结果，不安装也可以直接读[决策压力示例](examples/decision-pressure.md)和[三份公开案例报告](#看它如何改变结论)。
 
 五项可独立安装的 Agent Skills，主要面向**技术经理/工程经理，以及同时承担资深 Tech Lead 职责的人**。它们处理工程现场最容易被一句话带偏的时刻：一个数字刚好下降、一份方案急着上线、一个项目延期要找根因，或者一堆执行记录需要交给真正有决定权的人。
 
@@ -84,6 +109,8 @@ $tech-review
 ## 项目边界
 
 项目聚焦于把技术经理和资深 Tech Lead 的一线判断步骤做成轻量、可单独调用的能力，让证据、未知、取舍和行动在 Agent 输出中保持清楚。当前仓库包含五项 Skill 和 39 个评测案例；评测是有限案例检查，不能证明所有模型、团队或真实场景都会获得同等效果。职责范围不包含代码实现工作流，也不扩展到招聘、绩效、1:1 或团队健康管理。
+
+欢迎通过 [贡献指南](CONTRIBUTING.md) 提交边界清楚的案例、评测和文档改进。仓库的 CI 会自动检查 Skill 入口、评测库存和本地链接。
 
 ## 许可与版本
 

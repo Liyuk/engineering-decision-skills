@@ -8,6 +8,7 @@
 - Clarified the collection as five task-focused capabilities drawn from frontline technical-manager and senior Tech Lead work.
 - The current working tree contains 39 scenario prompts across the five skills; these are exploratory evaluation cases, not a general efficacy claim.
 - Reworked the README around decision pressure and added a before/after example showing how the skills bound an overconfident metric conclusion.
+- Added an English project summary, five-minute quick start, contribution guide, and GitHub Actions repository validation.
 
 ## v1.0.0 — 2026-09-24
 
