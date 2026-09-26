@@ -4,23 +4,24 @@ description: Use when the metric itself needs definition or validation, when a p
 license: MIT
 ---
 
-# Metric Decision
+# 指标判断
 
-Start from the user task, check how the number was produced, then connect trustworthy measurement to a decision. A metric is useful only when its object, definition, evidence quality, and decision consequence are clear.
+先确认这个数字在测什么、是怎么得到的，再决定它能支持什么行动。一个指标只有在对象、口径、数据质量和决策后果都清楚时，才适合拿来推动决定。
 
-## Workflow
+## 工作方式
 
-1. **Frame the decision.** Identify the user task or system outcome, audience, scope, and comparison window. Turn vague requests such as “saving is slow” into an observable task.
-2. **Define the measure.** State the measured object, numerator, denominator, exclusions, source, time window, segments, sample size, and relevant companion or guardrail metrics. If inputs are missing, mark them unknown and give the calculation needed. Match detail to the decision: for a minimum design, start with the primary metric, the smallest event set that computes it, and one material data-quality check; keep optional diagnostics separate.
-3. **Track evidence status.** Mark material claims as user-provided, sourced, measured, estimated, inferred, assumed, or unknown/to confirm. Preserve source, method, and date/window; do not promote an estimate or hypothesis to fact.
-4. **Validate before explaining.** Check definition changes, instrumentation coverage, delays, duplicate events, sample size, and comparability. Separate a real product change from a measurement change.
-5. **Bound the explanation.** Compare plausible explanations and state what evidence would confirm or reject each. Do not claim causation from timing or correlation alone.
-6. **Make the next action testable.** For each proposed action, state the hypothesis, expected metric movement, guardrails, owner or decision needed when known, verification window, and stop or rollback condition.
+1. 把问题说成一个可观察的用户任务或系统结果，并确认范围、比较窗口和读者。
+2. 写清对象、分子、分母、排除项、来源、时间窗口、分段和样本量。输入不全时，说明缺什么以及怎样算出来。
+3. 先检查定义、埋点覆盖、重复事件、延迟、样本量和可比性，再解释变化。产品真的变了，和报表或采集方式变了，是两件事。
+4. 保留几个能被证伪的解释，写明什么证据能支持或排除它们。仅凭时间先后或相关关系，不下因果结论。
+5. 把下一步写成一次可检查的动作：假设、预期变化、护栏指标、验证窗口，以及停止或回退条件。
 
-## Output
+最小设计通常只需要一个主指标、算出它所需的最小事件集合和一个关键数据质量检查。只有会改变当前决定的诊断项，才继续展开完整事件模型或看板。
 
-Match detail to the request. For an investigation, report the decision question, metric definition and evidence status, supported finding, unresolved explanations, and next action with verification. For a measurement-design request, provide the task definition, event/state model, metric card, and data-quality checks. Read [the method reference](references/metric-decision-method.md) for the cards and diagnostic sequence.
+## 输出
 
-Use the shared evidence labels in the repository's `agent/decision-and-review-contract.md` when available. Preserve source, method, and time window when handing results to planning, review, or reporting. For a worked example, read [instrumentation-change example](examples/instrumentation-change.md).
+调查指标变化时，通常回答：现在能确认什么、口径和证据是否可靠、哪些解释仍未分开、下一步先查什么。
 
-Use this skill when measurement itself is the task. Route broader investment choices to `tech-planning`, review of an existing proposal to `tech-review`, and audience-specific communication of confirmed findings to `eng-reporting` when those skills are available.
+设计新指标时，先给出任务定义、事件或状态变化、主指标和一个关键数据质量检查；只有确实影响决定的诊断项才继续展开。
+
+继续使用共享的证据状态和字段定义，见 [agent/decision-and-review-contract.md](../../agent/decision-and-review-contract.md)。详细方法见 [references/metric-decision-method.md](references/metric-decision-method.md)，示例见 [examples/instrumentation-change.md](examples/instrumentation-change.md)。

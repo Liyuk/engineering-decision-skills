@@ -2,45 +2,43 @@
 name: management-retro
 description: Use when a user asks to learn from completed engineering work, a project period, or an incident by examining recurring execution and system patterns and choosing what to keep, change, or stop next time.
 license: MIT
-compatibility: Works in Agent Skills environments that can read the supplied project notes, records, and references. It structures provided evidence and cannot independently verify unavailable organizational data.
-metadata:
-  author: Liyuk
-  version: "1.0.0"
-  domain: engineering-management-retrospective
+compatibility: Works in Agent Skills environments that can read the supplied project notes, records, and references.
 ---
 
-# Management Retrospective
+# 工程复盘
 
-Help a team make a better next decision from completed work. Treat a retrospective as learning about the system of work, not a blame exercise, status report, or control process. Preserve the principle **Context, not control**: clarify outcomes, evidence, boundaries, and decision rights so people closest to the work can act.
+从已经完成的项目、交付周期或事故中，找出下一次值得改变的地方。复盘关注工作的系统和决策，不是给个人定责，也不是把状态报告换一种格式。
 
-## Use this skill when
+## 什么时候用
 
-- The user wants to analyze a completed project, delivery period, recurring execution pattern, or incident and decide what to keep, change, or stop.
-- They ask why work diverged from its goal, where handoffs or decisions failed, or what learning should shape the next similar case.
+- 想知道工作为什么偏离目标，以及哪些判断、交接或约束造成了影响；
+- 想决定下次保留、改变或停止什么；
+- 想把一次事故或一段交付经历变成下一轮可以验证的改进。
 
-Do not force a full retrospective when the user only wants established material summarized or rewritten; use `eng-reporting`. When metric definition or data validity is the main question, use `metric-decision`. For review of a proposal before work begins, use `tech-review`; for a future investment plan or roadmap, use `tech-planning`. A retrospective may hand off to these skills only when the user needs that distinct deliverable. Do not turn findings into implementation, tickets, or an execution plan unless asked.
+如果只是整理已有结论，用 `eng-reporting`。如果主要在查指标口径或数据变化，用 `metric-decision`；如果要评审一份还没实施的方案，用 `tech-review`；如果要安排未来投入，用 `tech-planning`。
 
-## Method
+## 工作方式
 
-1. **Set the question and boundary.** Identify the work or period, intended outcome, comparison/baseline if available, audience, and decision the retrospective should inform. Keep the scope proportionate; ask only for information that could change the conclusion. If an incident is active, prioritize prevention, detection, containment, and repair before retrospective analysis.
-2. **Sort facts from explanations.** For each material claim, retain its source, scope/time, and state: user-provided, sourced, measured, estimated, inferred, assumed, or unknown/to confirm. Keep differing accounts attributed to their sources until there is enough evidence to explain the difference. Missing from the supplied prompt is not proof that a record or process is absent in reality; label that input unknown unless its absence is explicitly established. State the calculation and missing inputs when a number is requested but unavailable.
-3. **Describe the sequence before explaining it.** Separate intended outcome, decisions/changes, handoffs, execution, and observed result. Distinguish correlation, chronology, and a supported causal explanation. Test the leading explanation against the strongest counterevidence and plausible alternative. When accounts conflict about cause, do not rank one as “most likely” without independent evidence that distinguishes them; adding a caveat after naming a winner does not fix the overclaim. If you suggest which evidence to collect first, state the practical reason (such as urgency or collection cost), not implied likelihood. If the evidence cannot choose between explanations, say what is known and what would distinguish them.
-4. **Inspect only relevant system lenses.** Use the eight judgments in [the method reference](references/eight-judgments.md) as lenses, not mandatory sections: problem judgment; responsibility boundaries; alignment; context transfer; outcome closure; capacity/capability; team growth; and next-case learning. Select the few that explain this case; do not fill every lens or invent a systemic pattern from one anecdote.
-5. **Turn learning into a small next-cycle experiment.** For each supported learning, state what to keep/change/stop, the next action, a verification signal or review condition, and a responsible role/date only when confirmed. Otherwise mark owner/date `待确认` and name who or what must confirm it. Prefer a reversible check over a broad new process when evidence is weak.
-6. **Calibrate the conclusion.** State the bounded conclusion, evidence, material unknowns, and what evidence could change it. Do not assign personal fault from role labels or a single account. Do not claim an action worked merely because it was completed.
+先把问题、范围、预期结果和要支持的决定说清楚。然后按时间顺序还原发生了什么：目标、决定和变化、交接与执行、最后观察到的结果。解释原因时，区分时间上的先后、相关关系和有证据支持的因果关系。
 
-## Output
+对重要说法保留来源和状态：用户提供、来源支持、实测、估算、推断、假设或待确认。不同人说法不一致时，先保留各自的说法；没有能区分它们的证据，就不要挑一个当“最可能原因”。输入里没有提到某件事，也不等于现实中没有这件事。
 
-Fit the output to the user’s request. For a full retrospective, use a concise structure such as:
+只使用能解释当前案例的视角，例如问题判断、责任边界、上下文传递、结果闭环、容量与能力、团队成长或下一次学习。不要求每次都把所有视角填一遍。
 
-- **复盘问题与范围** — outcome, period, baseline/scope, decision to inform.
-- **事实与来源** — key observations and their evidence state; keep estimates, inferences, differing accounts, and unknowns explicit.
-- **判断** — supported pattern(s), impact, strongest alternative/counterevidence, and confidence boundary. Omit unsupported root-cause claims.
-- **下次保留 / 改变 / 停止** — a small number of actions with verification signals; owner/date only if known, otherwise `待确认`.
-- **待补证据** — only inputs that could change the judgment or action, with a collection method/calculation basis where useful.
+每个有依据的学习，落到一个小而可验证的下一步：保留/改变/停止什么，先做什么，用什么信号检查，何时复看。负责人和日期只有在材料确认过时才写；否则保留为待确认。
 
-For a short question, answer directly and include only the relevant evidence and next step. It is valid to conclude that no systemic cause is established, that a proposed change should be tested, or that no blocking learning is supported. Do not manufacture a minimum number of findings, owners, dates, action items, or recommendations. Avoid a polished management-report voice unless requested; that is `eng-reporting`’s job.
+如果事故还在处理中，先写当前的预防、检测、止损和修复，不急着下根因结论。复盘不自动生成工单或执行计划，除非用户明确需要。
 
-## Self-check
+## 输出建议
 
-Before responding, check that (a) each conclusion is traceable to evidence or explicitly marked as inference, (b) contradictory evidence and the strongest alternative are represented, (c) unknown owners/dates stay unknown, (d) actions can be verified, and (e) the answer is a retrospective rather than an adjacent skill’s deliverable.
+完整复盘通常包括：
+
+- 复盘问题与范围；
+- 事实、来源和仍有分歧的地方；
+- 当前能支持的判断，以及最强的替代解释；
+- 下次保留、改变或停止的少数动作；
+- 只有在会改变决定时才列出的待补证据。
+
+短问题就直接回答，不要为了显得完整而制造固定数量的发现、负责人或行动项。可以得出的结论也可能是：目前没有证据支持某个系统性原因，某项改变应该先试验，或暂时没有需要阻塞决定的学习。
+
+详细判断视角见 [references/eight-judgments.md](references/eight-judgments.md)。
