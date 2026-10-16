@@ -4,7 +4,7 @@ This repository is a collection of independently installable skills for frontlin
 
 ## Source of truth
 
-- `README.md` is the user-facing catalog and installation guide. Keep internal research and process history out of its primary path.
+- `README.md` (English) and `README.zh-CN.md` (Chinese) are the user-facing catalogs and installation guides. Keep the same section structure in both, and update them in the same change. `README.md` is the default GitHub landing page. Keep internal research and process history out of these files.
 - `agent/` owns rules shared across multiple skills. Keep each shared rule in one canonical document. Skills operationalize those rules. A skill package must not link outside its own directory.
 - The evidence contract's canonical file is `agent/decision-and-review-contract.md`. Because a copied skill cannot read that path, `python3 scripts/sync_skill_contract.py` writes an identical copy to `skills/<skill-name>/references/decision-and-review-contract.md`. Edit the canonical file and run the script in the same change. Do not edit the copies by hand.
 - `skills/<skill-name>/SKILL.md` is the standalone entrypoint. Keep skill-specific references, templates, eval cases, scripts, and the synced contract copy with that skill so it can be installed independently.

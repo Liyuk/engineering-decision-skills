@@ -20,6 +20,7 @@ FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*(?:\n|\Z)", re.DOTALL)
 NAME_RE = re.compile(r"^name:\s*['\"]?([^\s'\"]+)['\"]?\s*$", re.MULTILINE)
 LICENSE_RE = re.compile(r"^license:\s*MIT\s*$", re.MULTILINE)
 DESCRIPTION_RE = re.compile(r"^description:\s*\S", re.MULTILINE)
+H2_RE = re.compile(r"^## ", re.MULTILINE)
 LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 PACKAGE_LINK_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)|(?<!!)\[[^\]]*\]\(([^)]+)\)")
 PACKAGE_DOC_DIRS = ("references", "assets")
@@ -127,11 +128,39 @@ def check_markdown_links(errors: list[str], root: Path = ROOT) -> None:
                     errors.append(f"{relative}:{line_number}: local link target not found: {local_path}")
 
 
+def readme_pair_errors(root: Path = ROOT) -> list[str]:
+    """Require an English default README and a Chinese twin with the same sections."""
+    errors: list[str] = []
+    english = root / "README.md"
+    chinese = root / "README.zh-CN.md"
+    for path in (english, chinese):
+        if not path.is_file():
+            errors.append(f"missing required file: {path.relative_to(root)}")
+    if errors:
+        return errors
+    english_text = english.read_text(encoding="utf-8")
+    chinese_text = chinese.read_text(encoding="utf-8")
+    if not english_text.startswith("[Chinese](README.zh-CN.md)"):
+        errors.append("README.md: first line must link to README.zh-CN.md")
+    if not chinese_text.startswith("[英文](README.md)"):
+        errors.append("README.zh-CN.md: first line must link to README.md")
+    english_sections = len(H2_RE.findall(english_text))
+    chinese_sections = len(H2_RE.findall(chinese_text))
+    if english_sections != chinese_sections:
+        errors.append(
+            "README section count differs: "
+            f"README.md has {english_sections} level-2 headings, "
+            f"README.zh-CN.md has {chinese_sections}"
+        )
+    return errors
+
+
 def collect_errors(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
-    for required in (root / "README.md", root / "AGENTS.md", root / "agent/README.md"):
+    for required in (root / "AGENTS.md", root / "agent/README.md"):
         if not required.is_file():
             errors.append(f"missing required file: {required.relative_to(root)}")
+    errors.extend(readme_pair_errors(root))
     check_skill_packages(errors, root)
     check_skill_package_links(errors, root)
     check_markdown_links(errors, root)
@@ -149,7 +178,8 @@ def main() -> int:
     print(
         "Repository validation passed "
         "(entrypoints, names, license, descriptions, package docs, "
-        "in-package links, contract copies, eval JSON, local Markdown links)."
+        "in-package links, contract copies, eval JSON, local Markdown links, "
+        "English and Chinese READMEs)."
     )
     return 0
 

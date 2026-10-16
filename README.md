@@ -1,117 +1,113 @@
+[Chinese](README.zh-CN.md)
+
 # Engineering Decision Skills
 
 [![Validate](https://github.com/Liyuk/engineering-decision-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Liyuk/engineering-decision-skills/actions/workflows/validate.yml)
 
-> 把混乱的工程讨论，变成有证据边界、可作决定、能继续验证的判断。
+> Turn a messy engineering discussion into a judgment with an evidence boundary, a decision, and a way to verify it next.
 
-## English summary
+## Start in five minutes
 
-Engineering Decision Skills is a small, experimental toolkit for evidence-bounded engineering decisions. It helps technical managers and Tech Leads separate facts, measurements, estimates, inferences, assumptions, and unknowns before turning a metric change, proposal, roadmap, retrospective, or management update into a decision.
-
-The five skills are independently installable. Each description names the neighboring skill to use when a task crosses a boundary. Start with [`metric-decision`](skills/metric-decision/SKILL.md) when a number is driving a decision, or [`tech-review`](skills/tech-review/SKILL.md) when an existing proposal needs an evidence and delivery-readiness review. The repository is currently Chinese-first and has been behavior-smoke-tested primarily with Codex; the cases and limitations are documented rather than presented as proof of general model efficacy.
-
-## 5 分钟上手
-
-先安装一个最贴近当前问题的 Skill：
+Install the skill closest to the current problem:
 
 ```sh
 npx skills add Liyuk/engineering-decision-skills --skill metric-decision --agent codex --global
 ```
 
-然后把真实问题直接交给它：
+Then hand it the real question:
 
 ```text
 $metric-decision
-保存成功率从 98% 降到 93%，但同一周迁移了埋点。请说明现在能得出什么、哪些解释仍未确认、下一步怎么验证。
+Save success fell from 98% to 93%, and the instrumentation was migrated the same week. What can we conclude now, which explanations are still unconfirmed, and how should we verify the next step?
 ```
 
-想先看结果，不安装也可以直接读[决策压力示例](examples/decision-pressure.md)和[三份公开案例报告](#看它如何改变结论)。
+To see a result before installing, read the [decision-pressure example](examples/decision-pressure.md) and the [three public case reports](#how-the-conclusion-changes). Those examples are written in Chinese. The skill instructions are written in Chinese.
 
-五项可独立安装的 Agent Skills，主要面向**技术经理/工程经理，以及同时承担资深 Tech Lead 职责的人**。它们处理工程现场最容易被一句话带偏的时刻：一个数字刚好下降、一份方案急着上线、一个项目延期要找根因，或者一堆执行记录需要交给真正有决定权的人。
+Five independently installable Agent Skills, for **technical managers, engineering managers, and people who also carry a senior Tech Lead role**. They handle the moments when one sentence pulls an engineering discussion off course: a number just dropped, a proposal is rushing toward launch, a delayed project needs a cause, or a pile of execution notes has to reach the person who can actually decide.
 
-它把这些判断拆成五项独立任务：规划技术投入、评审别人写的技术方案和技术规划、判断指标能支持什么结论、从已完成工作中提炼改进，以及向管理层表达已形成的判断。共同目标不是生成更像管理术语的文本，而是防止未知变成事实、相关变成因果、建议变成已确认安排。
+The collection splits that judgment into five separate tasks: where to put technical effort, reviewing someone else's technical proposal or technical plan, deciding what a metric can support, learning from completed work, and stating a judgment that has already been formed for management. The shared aim is not text that sounds more managerial. It is to keep an unknown from becoming a fact, a correlation from becoming a cause, and a suggestion from becoming a confirmed arrangement.
 
-方法起点是项目作者在工程写作中反复总结的规划、指标、评审、复盘和决策沟通经验。技能把这些判断步骤变成可按任务调用的能力，不把原文文章套成固定报告模板。可从[技术规划](https://liyuk.com/writing/2025/11/technical-planning-business-and-competitive-analysis/)、[指标定义](https://liyuk.com/writing/2021/03/define-the-measurement-before-arguing-about-metrics/)、[管理复盘](https://liyuk.com/writing/2026/08/management-retrospective/)和[决策沟通](https://liyuk.com/writing/2023/03/information-sync-for-decisions/)了解方法来源。
+The methods start from planning, metric, review, retrospective, and decision-communication practice that the author has repeatedly written up from engineering work. The skills turn those judgment steps into something that can be invoked for a task. They do not pour the original essays into a fixed report template. The sources are [technical planning](https://liyuk.com/writing/2025/11/technical-planning-business-and-competitive-analysis/), [defining a metric before arguing about it](https://liyuk.com/writing/2021/03/define-the-measurement-before-arguing-about-metrics/), [management retrospectives](https://liyuk.com/writing/2026/08/management-retrospective/), and [decision communication](https://liyuk.com/writing/2023/03/information-sync-for-decisions/).
 
-这些技能共享一条工作原则：保留事实来源和未知状态，只在证据支持的范围内下结论，并给出可核实的下一步。它们帮助技术负责人审查和形成判断，不替代领域专家或组织决策。
+The skills share one working rule: keep the source of a fact and what is still unknown, conclude only inside what the evidence supports, and give a next step that can be checked. They help a technical owner examine and form a judgment. They do not replace a domain specialist or the organization's decision.
 
 ## Skills
 
-| Skill | 适用问题 | 改用 |
+| Skill | Question it answers | Use another skill when |
 | --- | --- | --- |
-| [`tech-review`](skills/tech-review/SKILL.md) | 现有方案的证据和交付保障足以支持当前决定吗？ | 从零写路线图用 `tech-planning`；解释指标变化用 `metric-decision` |
-| [`tech-planning`](skills/tech-planning/SKILL.md) | 有限能力投向哪里，做、缓、停哪些工程工作？ | 评审已经写好的方案用 `tech-review` |
-| [`metric-decision`](skills/metric-decision/SKILL.md) | 一个指标测量什么、变化可信吗、支持什么行动？ | 整份方案评审用 `tech-review`；改写已确认结论用 `eng-reporting` |
-| [`management-retro`](skills/management-retro/SKILL.md) | 已完成的工程工作说明了什么，下次保留、改变或停止什么？ | 只压缩已确认结论用 `eng-reporting` |
-| [`eng-reporting`](skills/eng-reporting/SKILL.md) | 怎样把已形成的结论整理成读者可判断、可行动的材料？ | 还要判断原因和下一次改变什么，用 `management-retro` |
+| [`tech-review`](skills/tech-review/SKILL.md) | Does the evidence and delivery readiness of an existing proposal support the current decision? | Drafting a roadmap from scratch: `tech-planning`. Explaining a metric change: `metric-decision` |
+| [`tech-planning`](skills/tech-planning/SKILL.md) | Where should limited capacity go, and which engineering work should be done, deferred, or stopped? | Reviewing a proposal that is already written: `tech-review` |
+| [`metric-decision`](skills/metric-decision/SKILL.md) | What does a metric measure, is the change trustworthy, and what action can it support? | Reviewing a whole proposal: `tech-review`. Rewriting a conclusion that is already settled: `eng-reporting` |
+| [`management-retro`](skills/management-retro/SKILL.md) | What did completed engineering work show, and what should be kept, changed, or stopped next time? | Only compressing a confirmed conclusion: `eng-reporting` |
+| [`eng-reporting`](skills/eng-reporting/SKILL.md) | How should an existing conclusion be written so a reader can judge it and act on it? | Still deciding the cause and what to change next time: `management-retro` |
 
-按当前任务安装和调用单项技能，无须顺序运行整套流程。
+Install and invoke the one skill that matches the current task. There is no need to run the set in order. Each skill's `description` names the neighboring skill to use when a task crosses a boundary.
 
-## 它会阻止什么
+## What it stops
 
-例如：
+For example:
 
 ```text
-“团队 MR Rate 本季度上升 25%，说明个人生产力提高。下季度给每位工程师设 MR 目标。”
+"The team's MR Rate rose 25% this quarter, so individual productivity improved. Next quarter, set an MR target for every engineer."
 ```
 
-这个输入里，`+25%` 可能是真实观察，但它没有告诉我们分母、团队边界、MR 类型、评审负担、质量或交付结果。项目不会顺着这句话直接写出个人配额，而会先指出：当前只能确认一个聚合指标发生变化，无法据此证明个人生产力提升，更不能直接推出公平的个人目标。
+In this input, `+25%` may be a real observation, but it does not say what the denominator is, where the team boundary is, what kinds of MRs were counted, what the review load was, or what happened to quality and delivery. The project does not continue from that sentence into personal quotas. It first says what can be confirmed: an aggregate metric changed. That does not prove that individual productivity rose, and it does not support a fair individual target.
 
-它接着把争论变成可执行的下一步：核对指标卡和可比窗口，检查团队构成与分类质量，补充质量/交付护栏，再决定是否值得做团队级验证。完整的前后判断见[决策压力示例](examples/decision-pressure.md)。
+It then turns the argument into a next step that can be carried out: check the metric card and a comparable window, check team composition and classification quality, add quality and delivery guardrails, and only then decide whether a team-level check is worth doing. The before-and-after judgment is in the [decision-pressure example](examples/decision-pressure.md).
 
-## 从哪个 Skill 开始
+## Which skill to start with
 
-不确定时先看上表的「改用」列。如果你第一次使用，优先从这两个入口开始：
+When you are unsure, use the "Use another skill when" column above. On a first use, start with one of these:
 
-- `$metric-decision`：当一个数字正在推动决定，但你不确定它是否可比、能否归因或应该采取什么行动。
-- `$tech-review`：当一份方案已经写出来，但你想知道它是否真的有足够证据支持当前决定。
+- `$metric-decision`: a number is driving a decision, and you are not sure it is comparable, causal, or the right basis for action.
+- `$tech-review`: a proposal has already been written, and you want to know whether the evidence is actually enough for the current decision.
 
-其余三个入口分别处理未来投资取舍、已完成工作的学习，以及把已有结论压缩成读者能判断的材料。它们不是必须串成一条流水线的五步流程。
+The other three cover future investment choices, learning from completed work, and compressing an existing conclusion into something a reader can judge. They are not five required steps in one pipeline.
 
-## 看它如何改变结论
+## How the conclusion changes
 
-下面三份案例报告各选一份公开材料，再分别交给五项能力处理，展示不同任务下的结论如何分工。报告引用 GitHub、Google 和 GitLab 的一手工程材料；为补齐用户交来的方案而构造的文本会明确标成“演示设定”，不冒充来源原文。
+Each case report below takes one public source and runs it through the five skills, so the tasks stay distinct. The reports cite first-party engineering material from GitHub, Google, and GitLab. Text added to stand in for a proposal the user supplied is marked as a demonstration setting and is not presented as the source text. The reports are written in Chinese.
 
-- [生产基础设施事故：Google 卫星集群误删事件](examples/reports/google-satellite-incident.md)
-- [数据库迁移方案：GitHub gh-ost 与 MySQL 迁移流程](examples/reports/github-mysql-migrations.md)
-- [工程生产力指标：GitLab MR Rate](examples/reports/gitlab-mr-rate.md)
+- [Production incident: accidental deletion in a Google satellite cluster](examples/reports/google-satellite-incident.md)
+- [Database migration: GitHub gh-ost and the MySQL migration flow](examples/reports/github-mysql-migrations.md)
+- [Engineering productivity metric: GitLab MR Rate](examples/reports/gitlab-mr-rate.md)
 
-每份报告都会分别展示 `tech-planning`、`metric-decision`、`tech-review`、`management-retro` 和 `eng-reporting` 的判断。技能不会为了“展示五项能力”而对不适用的问题硬给结论；信息不足时会写明未知和所需输入。
+Each report shows the judgment from `tech-planning`, `metric-decision`, `tech-review`, `management-retro`, and `eng-reporting`. A skill does not force a conclusion onto a question it does not fit. When the information is insufficient, it names the unknown and the input that is still needed.
 
-## 安装
+## Install
 
-每项技能都以 `SKILL.md` 为入口，目录内包含该技能需要的参考和证据契约副本，复制后不依赖仓库里的其他路径。可直接复制目录到 Codex 的个人技能目录：
+Each skill is entered through `SKILL.md`. The directory includes the references that skill needs and a copy of the evidence contract, so a copied skill does not depend on other paths in the repository. Copy a directory into Codex's personal skills directory:
 
 ```sh
 mkdir -p ~/.codex/skills
 cp -R skills/tech-review ~/.codex/skills/
 ```
 
-也可使用 [Vercel Skills CLI](https://github.com/vercel-labs/skills) 从本仓库安装单项技能：
+You can also install one skill from this repository with the [Vercel Skills CLI](https://github.com/vercel-labs/skills):
 
 ```sh
 npx skills add Liyuk/engineering-decision-skills --skill tech-review --agent codex --global
 ```
 
-把 `tech-review` 换成上表中的任一技能名即可。本项目是 Markdown 技能包，不需要发布 npm 包；`npx` 只负责运行通用安装工具。技能目录遵循 [Agent Skills 格式](https://agentskills.io)。目前只在 Codex 上完成安装与发现冒烟验证；Claude Code 等环境尚未逐一验证，格式兼容不等于行为已经验证。
+Replace `tech-review` with any skill name in the table above. This project is a Markdown skill package and does not publish an npm package; `npx` only runs the shared installer. Skill directories follow the [Agent Skills format](https://agentskills.io). Installation and discovery have been smoke-tested on Codex only. Claude Code and other hosts have not been checked one by one. A compatible format is not evidence that the behavior has been verified.
 
-## 从评审别人写的方案开始
+## Start by reviewing someone else's proposal
 
-如果你要审一份别人写的技术方案或技术规划，先试 `$tech-review`。让它检查目标、依据、方案取舍、资源与依赖、交付风险和验收证据，并把每项实质问题与原文依据、影响和建议动作对应起来。它会区分阻塞问题与改进建议；证据没有发现阻塞项时，可以给出通过结论。
+To review a technical proposal or technical plan written by someone else, try `$tech-review`. Ask it to check the goal, the evidence, the options, resources and dependencies, delivery risk, and acceptance evidence, and to tie each material issue to the source text, the impact, and a suggested action. It separates blockers from suggestions. When the evidence does not support a blocker, it can give a pass.
 
 ```text
 $tech-review
-请评审这份技术规划：检查目标依据、备选方案、资源与依赖、实施顺序、主要风险和验收指标。逐项标明原文依据、影响和建议动作；只报告会影响决定的问题，不要直接重写。
+Review this technical plan. Check the evidence for the goal, the alternatives, resources and dependencies, implementation order, the main risks, and the acceptance metrics. For each issue, name the source text, the impact, and the suggested action. Report only issues that would change the decision. Do not rewrite the plan.
 ```
 
-如果需要从空白开始形成规划，改用 `$tech-planning`；如果主要问题是某个指标的口径或变化是否可信，再用 `$metric-decision`。更多实际报告见上方三个公开案例。
+To form a plan from a blank page, use `$tech-planning`. When the main question is whether a metric's definition or change is trustworthy, use `$metric-decision`. The three public cases above are further reports.
 
-## 项目边界
+## Project boundaries
 
-项目聚焦于把技术经理和资深 Tech Lead 的一线判断步骤做成轻量、可单独调用的能力，让证据、未知、取舍和行动在 Agent 输出中保持清楚。当前仓库包含五项 Skill 和 42 个评测案例；评测是有限案例检查，不能证明所有模型、团队或真实场景都会获得同等效果。职责范围不包含代码实现工作流，也不扩展到招聘、绩效、1:1 或团队健康管理。
+The project turns the frontline judgment steps of a technical manager or senior Tech Lead into light skills that can be called on their own, so evidence, unknowns, trade-offs, and actions stay clear in the agent's output. The repository currently contains five skills and 42 evaluation cases. Those evaluations are a limited case check. They do not show that every model, team, or real situation will get the same result. The scope does not include a code-implementation workflow, and it does not extend to hiring, performance, 1:1s, or team-health management.
 
-欢迎通过 [贡献指南](CONTRIBUTING.md) 提交边界清楚的案例、评测和文档改进。仓库的 CI 会自动检查 Skill 入口、评测库存和本地链接。
+Cases, evaluations, and documentation changes with a clear boundary are welcome through the [contributing guide](CONTRIBUTING.md), which is written in Chinese. Repository CI checks skill entrypoints, the evaluation inventory, and local links.
 
-## 许可与版本
+## License and versions
 
-整个仓库采用 [MIT License](LICENSE)。版本变化见 [`CHANGELOG.md`](CHANGELOG.md) 与 [GitHub Releases](https://github.com/Liyuk/engineering-decision-skills/releases)。
+The repository is under the [MIT License](LICENSE). Version history is in [`CHANGELOG.md`](CHANGELOG.md) and [GitHub Releases](https://github.com/Liyuk/engineering-decision-skills/releases).

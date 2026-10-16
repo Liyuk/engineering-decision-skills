@@ -20,5 +20,5 @@ By 2026-09-25 the repository had added `skills/management-retro/` as its own ent
 ## Consequences
 
 - Install and invoke `management-retro` on its own. Its package contains the entrypoint, reference, evaluations, license, and the synced evidence-contract copy.
-- ADR 0002 remains the record of the earlier candidate boundary. The current catalog is this ADR together with the five skill entrypoints and [`README.md`](../../README.md).
+- ADR 0002 remains the record of the earlier candidate boundary. The current catalog is this ADR together with the five skill entrypoints, [`README.md`](../../README.md), and [`README.zh-CN.md`](../../README.zh-CN.md).
 - Using the skill does not require the other four skills to be installed or run in sequence.
