@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run consistency tests
-        run: python3 -m unittest scripts/test_check_consistency.py -v
+        run: python3 -m unittest scripts/test_check_consistency.py scripts/test_validate_repo.py -v
       - name: Check current inventory and links
         run: python3 scripts/check_consistency.py
       - name: Validate Skill packages

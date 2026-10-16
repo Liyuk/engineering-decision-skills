@@ -1,8 +1,8 @@
 ---
 name: eng-reporting
-description: Use when turning notes, meeting records, established project conclusions, or engineering achievements into a management update, project summary, self-review, or promotion narrative.
+description: Use when turning notes, meeting records, established project conclusions, or engineering achievements into a management update, project summary, self-review, or promotion narrative without upgrading the evidence. Do not use it to decide why something happened or what to change next (use management-retro), to judge an unshipped proposal (use tech-review), to choose future capacity (use tech-planning), or to validate a metric (use metric-decision).
 license: MIT
-compatibility: 适用于可读取文档、会议纪要、文本笔记和本地参考文件的 Agent 环境。
+compatibility: Works in Agent Skills environments that can read supplied notes, meeting records, and local references.
 ---
 
 # 工程汇报与总结
@@ -18,7 +18,7 @@ compatibility: 适用于可读取文档、会议纪要、文本笔记和本地�
 - 把成果条目整理成自评、晋升或答辩材料；
 - 把已有结论的复盘改写成老板或跨团队伙伴看得懂的版本。
 
-如果还需要判断“为什么会这样”以及下次该保留、改变或停止什么，用 `management-retro`。如果主要问题是指标是否可信，用 `metric-decision`；如果是评审一份尚未实施的方案，用 `tech-review`。
+如果还需要判断“为什么会这样”以及下次该保留、改变或停止什么，用 `management-retro`。如果主要问题是指标是否可信，用 `metric-decision`；如果是评审一份尚未实施的方案，用 `tech-review`；如果要决定未来把能力投向哪里，用 `tech-planning`。
 
 ## 工作方式
 
@@ -54,4 +54,4 @@ compatibility: 适用于可读取文档、会议纪要、文本笔记和本地�
 
 这比直接写“问题已解决、风险已消除”更可靠，也更方便读者知道下一步该判断什么。
 
-详细方法见 [references/REFERENCE.md](references/REFERENCE.md)，常用模板见 [assets/templates.md](assets/templates.md) 和 [assets/input-templates.md](assets/input-templates.md)。
+详细方法见 [references/REFERENCE.md](references/REFERENCE.md)，常用模板见 [assets/templates.md](assets/templates.md) 和 [assets/input-templates.md](assets/input-templates.md)。素材已经是 JSON 要点时，可用 [scripts/scaffold_from_json.py](scripts/scaffold_from_json.py) 生成 Markdown 骨架，再按证据状态改写；骨架不是结论。

@@ -31,4 +31,4 @@ This index is for maintainers. It explains what each archive group means and whe
 | [`2026-09-25-history-and-consistency-design.md`](decisions/2026-09-25-history-and-consistency-design.md) | Current archive reorganization design | Defines the archive taxonomy and consistency checks |
 | [`2026-09-25-history-and-consistency.md`](plans/2026-09-25-history-and-consistency.md) | Current archive reorganization plan | Records the implementation and verification steps |
 
-When a historical file mentions four skills or 38 eval prompts, that is an earlier snapshot rather than a current repository count. The current repository inventory is five skills and 39 eval cases.
+When a historical file mentions four skills, 38 eval prompts, or 39 eval prompts, that is an earlier snapshot rather than a current repository count. The current repository inventory is five skills and 42 eval cases.

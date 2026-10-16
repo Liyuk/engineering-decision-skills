@@ -1,6 +1,6 @@
 ---
 name: tech-review
-description: Use when reviewing an existing technical proposal, architecture, benchmark, AI adoption plan, or decision brief for evidence, trade-offs, delivery risk, and decision readiness. Use tech-planning to create a new roadmap.
+description: Use when reviewing an existing technical proposal, architecture, migration plan, benchmark, AI adoption plan, or decision brief for evidence, trade-offs, delivery risk, and decision readiness. Do not use it to draft a new roadmap (use tech-planning), to define or investigate a metric (use metric-decision), to learn from completed work (use management-retro), or to rewrite settled conclusions for an audience (use eng-reporting).
 license: MIT
 ---
 
@@ -8,11 +8,20 @@ license: MIT
 
 帮助用户判断一份已有方案是否足以支持当前决定。评审不是为了证明评审者更懂，也不是顺手把原文重写一遍；只指出有材料依据、并且会影响决定或交付的问题。
 
+## 什么时候用
+
+- 已经有技术方案、架构、迁移、benchmark 或决策材料，要判断它能不能支持当前决定；
+- 需要把阻塞问题、非阻塞建议和证据不足分开。
+
+如果要从空白形成路线图或投资取舍，用 `tech-planning`。如果核心问题是指标口径、可比性或变化原因，用 `metric-decision`。如果要总结已完成工作并决定下次保留、改变或停止什么，用 `management-retro`。如果结论已经形成，只需要改写给读者，用 `eng-reporting`。
+
 ## 工作方式
 
 先确认材料、目标、读者、要作的决定和评审范围。没有原文时，明确结论只能基于用户的描述。
 
 接着核对方案里的关键主张、数据口径、比较条件、假设和依赖。根据实际风险检查需求追溯、架构边界、迁移兼容、安全、容量、测试、可观测性、发布、回滚和运维；不相关的部分跳过。
+
+安全、隐私、合规、容量或法务等专项问题，只根据材料指出缺口、影响和建议由谁复核。本评审不替代对应专家审查，也不把缺口写成已经违规或已经安全。
 
 每个实质问题都写清：问题是什么，依据在哪里，放着不改会怎样，建议下一步是什么，优先级和当前状态。偏好不是缺陷；材料不足以判断时，写成待确认。
 
@@ -24,6 +33,6 @@ license: MIT
 
 短评审可以压缩成：结论 → 关键依据 → 主要风险或未知 → 下一步。
 
-完整评审可按“决定请求、现状与依据、判断与选项、建议条件、执行护栏”组织，但不必为了套结构补齐不存在的内容。评审发现的字段和优先级见 [agent/decision-and-review-contract.md](../../agent/decision-and-review-contract.md)。
+完整评审可按“决定请求、现状与依据、判断与选项、建议条件、执行护栏”组织，但不必为了套结构补齐不存在的内容。字段说明见 [references/presentation_template.md](references/presentation_template.md)。评审发现的字段和优先级见 [agent/decision-and-review-contract.md](../../agent/decision-and-review-contract.md)；技能被单独复制安装、读不到该文件时，按上文已经列出的问题、依据、影响、下一步、优先级和状态写即可。
 
 示例和提问参考见 [references/good_bad_examples.md](references/good_bad_examples.md) 与 [references/interrogation_snippets.md](references/interrogation_snippets.md)。需要说明方法来源时再看 [references/method-sources.md](references/method-sources.md)。

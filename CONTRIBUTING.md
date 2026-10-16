@@ -23,13 +23,14 @@
 3. 至少补一个正常案例、一个缺信息案例和一个冲突信息案例。
 4. 用 `agent/eval-rubric.md` 检查事实克制、任务匹配、可执行性、格式和语气。
 5. 更新相关的 Skill 文档和当前入口；历史研究放入 `docs/archive/`，不要混入用户主路径。
+6. 如果改了触发边界，同步 frontmatter `description`、技能里的「什么时候用」，并补一个能证明会转交相邻技能的 eval case。
 
 ## 本地验证
 
 仓库不需要安装第三方依赖。提交前运行：
 
 ```sh
-python3 -m unittest scripts/test_check_consistency.py -v
+python3 -m unittest scripts/test_check_consistency.py scripts/test_validate_repo.py -v
 python3 scripts/check_consistency.py
 python3 scripts/validate_repo.py
 git diff --check

@@ -1,6 +1,6 @@
 ---
 name: management-retro
-description: Use when a user asks to learn from completed engineering work, a project period, or an incident by examining recurring execution and system patterns and choosing what to keep, change, or stop next time.
+description: Use when learning from completed engineering work, a delivery period, or an incident, to separate sequence from evidenced cause and choose what to keep, change, or stop next time. Do not use it to reformat an already settled summary (use eng-reporting), to validate a metric (use metric-decision), to review a proposal that has not been carried out (use tech-review), or to choose future capacity (use tech-planning).
 license: MIT
 compatibility: Works in Agent Skills environments that can read the supplied project notes, records, and references.
 ---

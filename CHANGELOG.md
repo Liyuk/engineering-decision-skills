@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Tightened each skill description and in-skill routing so a task that belongs to a neighboring skill is named explicitly.
+- Aligned `eng-reporting` rewrite examples and templates with the evidence boundary: clearer wording may restate sourced facts only.
+- Linked the `tech-review` decision-structure reference from its entrypoint, and noted how to proceed when a standalone install cannot read the shared contract.
+- Validation now requires `license: MIT`, a non-empty description, and a link from each skill entrypoint to its local references and assets.
+- Added three routing-boundary eval prompts (`route-new-roadmap-out`, `route-existing-proposal-review-out`, `route-proposal-review-out`). They are unscored scenario checks. The inventory is 42 prompts.
 - Added `management-retro` as a fifth independently installable skill for evidence-bounded learning from completed engineering work.
 - Added a concise, scope-qualified methods reference for `tech-review`.
 - Added three public-source case reports showing the distinct output of each skill for technical managers and senior Tech Leads.
