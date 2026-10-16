@@ -54,4 +54,4 @@ compatibility: Works in Agent Skills environments that can read supplied notes, 
 
 这比直接写“问题已解决、风险已消除”更可靠，也更方便读者知道下一步该判断什么。
 
-详细方法见 [references/REFERENCE.md](references/REFERENCE.md)，常用模板见 [assets/templates.md](assets/templates.md) 和 [assets/input-templates.md](assets/input-templates.md)。素材已经是 JSON 要点时，可用 [scripts/scaffold_from_json.py](scripts/scaffold_from_json.py) 生成 Markdown 骨架，再按证据状态改写；骨架不是结论。
+详细方法见 [references/REFERENCE.md](references/REFERENCE.md)，常用模板见 [assets/templates.md](assets/templates.md) 和 [assets/input-templates.md](assets/input-templates.md)。证据状态见 [references/decision-and-review-contract.md](references/decision-and-review-contract.md)。素材已经是 JSON 要点时，可用 [scripts/scaffold_from_json.py](scripts/scaffold_from_json.py) 生成 Markdown 骨架，再按证据状态改写；骨架不是结论。

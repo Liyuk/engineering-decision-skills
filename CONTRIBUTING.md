@@ -36,7 +36,7 @@ python3 scripts/validate_repo.py
 git diff --check
 ```
 
-如果修改了共享规则，必须同时检查所有受影响的 Skill；如果移动 Skill 文件或本地引用，必须运行 `python3 scripts/validate_repo.py`。
+如果修改了共享规则，必须同时检查所有受影响的 Skill。证据契约只改 `agent/decision-and-review-contract.md`，然后运行 `python3 scripts/sync_skill_contract.py`，不要手改五个副本。技能包内的链接不能指向该目录之外。如果移动 Skill 文件或本地引用，必须运行 `python3 scripts/validate_repo.py`。
 
 ## 提交说明
 

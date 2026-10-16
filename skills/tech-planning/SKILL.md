@@ -29,4 +29,4 @@ license: MIT
 
 按用户需要交付规划、决策摘要、表格或架构图。短摘要优先写结论、关键依据、会改变决定的未知项、选项差异和一个可逆的下一步，不要把完整方法清单全部展开。
 
-完整判断链、能力地图和资源时钟见 [references/planning_methodology.md](references/planning_methodology.md)。需要架构图时看 [references/architecture_design.md](references/architecture_design.md)，对照示例见 [references/good_bad_examples.md](references/good_bad_examples.md)。
+完整判断链、能力地图和资源时钟见 [references/planning_methodology.md](references/planning_methodology.md)。需要架构图时看 [references/architecture_design.md](references/architecture_design.md)，对照示例见 [references/good_bad_examples.md](references/good_bad_examples.md)。证据状态和交接字段见 [references/decision-and-review-contract.md](references/decision-and-review-contract.md)，只使用会改变当前选择的部分。

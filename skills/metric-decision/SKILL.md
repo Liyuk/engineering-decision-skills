@@ -31,4 +31,4 @@ license: MIT
 
 设计新指标时，先给出任务定义、事件或状态变化、主指标和一个关键数据质量检查；只有确实影响决定的诊断项才继续展开。
 
-继续使用共享的证据状态和字段定义，见 [agent/decision-and-review-contract.md](../../agent/decision-and-review-contract.md)。技能被单独复制安装、读不到该文件时，仍按本节区分定义、数据质量和未分开的解释，不把相关写成因果。详细方法见 [references/metric-decision-method.md](references/metric-decision-method.md)，示例见 [examples/instrumentation-change.md](examples/instrumentation-change.md)。
+证据状态和字段定义见 [references/decision-and-review-contract.md](references/decision-and-review-contract.md)。详细方法见 [references/metric-decision-method.md](references/metric-decision-method.md)，示例见 [examples/instrumentation-change.md](examples/instrumentation-change.md)。

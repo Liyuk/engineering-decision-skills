@@ -80,7 +80,7 @@ $metric-decision
 
 ## 安装
 
-每项技能都以 `SKILL.md` 为入口，可直接复制目录到 Codex 的个人技能目录：
+每项技能都以 `SKILL.md` 为入口，目录内包含该技能需要的参考和证据契约副本，复制后不依赖仓库里的其他路径。可直接复制目录到 Codex 的个人技能目录：
 
 ```sh
 mkdir -p ~/.codex/skills

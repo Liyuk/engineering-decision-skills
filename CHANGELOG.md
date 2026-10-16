@@ -4,14 +4,16 @@
 
 - Tightened each skill description and in-skill routing so a task that belongs to a neighboring skill is named explicitly.
 - Aligned `eng-reporting` rewrite examples and templates with the evidence boundary: clearer wording may restate sourced facts only.
-- Linked the `tech-review` decision-structure reference from its entrypoint, and noted how to proceed when a standalone install cannot read the shared contract.
+- Linked the `tech-review` decision-structure reference from its entrypoint.
+- Copied the evidence contract into every skill package with `scripts/sync_skill_contract.py`. The canonical file stays in `agent/`; validation fails when a copy drifts or a skill links outside its package.
+- Recorded [ADR 0004](agent/adr/0004-management-retro-fifth-skill.md): `management-retro` is the fifth skill, superseding the candidate status in ADR 0002.
 - Validation now requires `license: MIT`, a non-empty description, and a link from each skill entrypoint to its local references and assets.
 - Added three routing-boundary eval prompts (`route-new-roadmap-out`, `route-existing-proposal-review-out`, `route-proposal-review-out`). They are unscored scenario checks. The inventory is 42 prompts.
 - Added `management-retro` as a fifth independently installable skill for evidence-bounded learning from completed engineering work.
 - Added a concise, scope-qualified methods reference for `tech-review`.
 - Added three public-source case reports showing the distinct output of each skill for technical managers and senior Tech Leads.
 - Clarified the collection as five task-focused capabilities drawn from frontline technical-manager and senior Tech Lead work.
-- The current working tree contains 39 scenario prompts across the five skills; these are exploratory evaluation cases, not a general efficacy claim.
+- The current working tree contains 42 scenario prompts across the five skills; these are exploratory evaluation cases, not a general efficacy claim.
 - Reworked the README around decision pressure and added a before/after example showing how the skills bound an overconfident metric conclusion.
 - Added an English project summary, five-minute quick start, contribution guide, and GitHub Actions repository validation.
 

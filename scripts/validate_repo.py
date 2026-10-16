@@ -9,6 +9,11 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
+if __name__ == "__main__":
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from scripts.sync_skill_contract import contract_copy_errors
+
 
 ROOT = Path(__file__).resolve().parent.parent
 FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*(?:\n|\Z)", re.DOTALL)
@@ -16,6 +21,7 @@ NAME_RE = re.compile(r"^name:\s*['\"]?([^\s'\"]+)['\"]?\s*$", re.MULTILINE)
 LICENSE_RE = re.compile(r"^license:\s*MIT\s*$", re.MULTILINE)
 DESCRIPTION_RE = re.compile(r"^description:\s*\S", re.MULTILINE)
 LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
+PACKAGE_LINK_RE = re.compile(r"!\[[^\]]*\]\(([^)]+)\)|(?<!!)\[[^\]]*\]\(([^)]+)\)")
 PACKAGE_DOC_DIRS = ("references", "assets")
 
 
@@ -75,6 +81,37 @@ def check_linked_package_docs(
                 )
 
 
+def local_link_target(target: str) -> str | None:
+    """Return a local path from a Markdown link target, or None for external and anchor links."""
+    cleaned = target.strip().split(maxsplit=1)[0].strip("<>")
+    parsed = urlparse(cleaned)
+    if parsed.scheme or cleaned.startswith("//") or cleaned.startswith("#"):
+        return None
+    local_path = unquote(parsed.path)
+    return local_path or None
+
+
+def check_skill_package_links(errors: list[str], root: Path = ROOT) -> None:
+    """Fail when a skill package links to a file outside its own directory."""
+    for skill_file in sorted((root / "skills").glob("*/SKILL.md")):
+        skill_dir = skill_file.parent.resolve()
+        for source in sorted(skill_dir.rglob("*.md")):
+            relative = source.relative_to(root)
+            for line_number, line in enumerate(source.read_text(encoding="utf-8").splitlines(), 1):
+                for match in PACKAGE_LINK_RE.finditer(line):
+                    raw_target = match.group(1) or match.group(2)
+                    local_path = local_link_target(raw_target)
+                    if local_path is None:
+                        continue
+                    resolved = (source.parent / local_path).resolve()
+                    try:
+                        resolved.relative_to(skill_dir)
+                    except ValueError:
+                        errors.append(
+                            f"{relative}:{line_number}: link points outside the skill package: {local_path}"
+                        )
+
+
 def check_markdown_links(errors: list[str], root: Path = ROOT) -> None:
     for source in root.rglob("*.md"):
         relative = source.relative_to(root)
@@ -82,12 +119,8 @@ def check_markdown_links(errors: list[str], root: Path = ROOT) -> None:
             continue
         for line_number, line in enumerate(source.read_text(encoding="utf-8").splitlines(), 1):
             for match in LINK_RE.finditer(line):
-                target = match.group(1).strip().split(maxsplit=1)[0].strip("<>")
-                parsed = urlparse(target)
-                if parsed.scheme or target.startswith("//") or target.startswith("#"):
-                    continue
-                local_path = unquote(parsed.path)
-                if not local_path:
+                local_path = local_link_target(match.group(1))
+                if local_path is None:
                     continue
                 resolved = (source.parent / local_path).resolve()
                 if not resolved.exists():
@@ -100,7 +133,9 @@ def collect_errors(root: Path = ROOT) -> list[str]:
         if not required.is_file():
             errors.append(f"missing required file: {required.relative_to(root)}")
     check_skill_packages(errors, root)
+    check_skill_package_links(errors, root)
     check_markdown_links(errors, root)
+    errors.extend(contract_copy_errors(root))
     return errors
 
 
@@ -113,7 +148,8 @@ def main() -> int:
         return 1
     print(
         "Repository validation passed "
-        "(entrypoints, names, license, descriptions, package docs, eval JSON, local Markdown links)."
+        "(entrypoints, names, license, descriptions, package docs, "
+        "in-package links, contract copies, eval JSON, local Markdown links)."
     )
     return 0
 

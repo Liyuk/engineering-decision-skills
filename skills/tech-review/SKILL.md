@@ -33,6 +33,6 @@ license: MIT
 
 短评审可以压缩成：结论 → 关键依据 → 主要风险或未知 → 下一步。
 
-完整评审可按“决定请求、现状与依据、判断与选项、建议条件、执行护栏”组织，但不必为了套结构补齐不存在的内容。字段说明见 [references/presentation_template.md](references/presentation_template.md)。评审发现的字段和优先级见 [agent/decision-and-review-contract.md](../../agent/decision-and-review-contract.md)；技能被单独复制安装、读不到该文件时，按上文已经列出的问题、依据、影响、下一步、优先级和状态写即可。
+完整评审可按“决定请求、现状与依据、判断与选项、建议条件、执行护栏”组织，但不必为了套结构补齐不存在的内容。字段说明见 [references/presentation_template.md](references/presentation_template.md)。评审发现的字段和优先级见 [references/decision-and-review-contract.md](references/decision-and-review-contract.md)。
 
 示例和提问参考见 [references/good_bad_examples.md](references/good_bad_examples.md) 与 [references/interrogation_snippets.md](references/interrogation_snippets.md)。需要说明方法来源时再看 [references/method-sources.md](references/method-sources.md)。
