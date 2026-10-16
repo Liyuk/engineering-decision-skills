@@ -5,14 +5,15 @@ This repository is a collection of independently installable skills for frontlin
 ## Source of truth
 
 - `README.md` is the user-facing catalog and installation guide. Keep internal research and process history out of its primary path.
-- `agent/` owns rules shared across multiple skills. Keep each shared rule in one canonical document; skills operationalize those rules and link back to them.
-- `skills/<skill-name>/SKILL.md` is the standalone entrypoint. Keep skill-specific references, templates, eval cases, and scripts with that skill so it can be installed independently.
+- `agent/` owns rules shared across multiple skills. Keep each shared rule in one canonical document. Skills operationalize those rules. A skill package must not link outside its own directory.
+- The evidence contract's canonical file is `agent/decision-and-review-contract.md`. Because a copied skill cannot read that path, `python3 scripts/sync_skill_contract.py` writes an identical copy to `skills/<skill-name>/references/decision-and-review-contract.md`. Edit the canonical file and run the script in the same change. Do not edit the copies by hand.
+- `skills/<skill-name>/SKILL.md` is the standalone entrypoint. Keep skill-specific references, templates, eval cases, scripts, and the synced contract copy with that skill so it can be installed independently.
 - `docs/archive/` stores internal research, evaluations, blog drafts, and design/implementation history. Preserve Git history; do not expose these records as the main user entry point.
 
 ## Change rules
 
 - Preserve independent skill boundaries; do not create a root router skill unless it adds a distinct, useful invocation path.
-- When a shared rule changes, update its canonical `agent/` document and every affected skill in the same change.
+- When a shared rule changes, update its canonical `agent/` document and every affected skill in the same change. For the evidence contract, update the canonical file and run `python3 scripts/sync_skill_contract.py` instead of editing five copies.
 - When skill behavior changes, update or add eval cases that exercise the behavior and its boundary conditions.
 - Distinguish user-provided facts, sourced facts, measurements, estimates, inferences, assumptions, and unknowns. Never invent metrics, citations, or review findings to satisfy an output template.
 - Keep review and revision as separate actions unless the user explicitly requests both.

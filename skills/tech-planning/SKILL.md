@@ -1,12 +1,19 @@
 ---
 name: tech-planning
-description: Use when shaping a technical strategy or roadmap, comparing engineering investments, analyzing business constraints, or translating priorities into capacity, milestones, dependencies, and measurable outcomes.
+description: Use when choosing where limited engineering capacity should go: shaping a technical strategy or roadmap, comparing build, buy, defer, or status-quo options, and turning priorities into scope, dependencies, milestones, and measurable outcomes. Do not use it to review an already written proposal (use tech-review), to validate a metric (use metric-decision), to learn from completed work (use management-retro), or to rewrite settled conclusions (use eng-reporting).
 license: MIT
 ---
 
 # 技术规划
 
 把业务问题和工程约束转成几条真正可以比较的投资选择。规划不是把所有工作排进时间表，而是说明现在做什么、暂缓什么、为什么，以及什么变化会让决定重新打开。
+
+## 什么时候用
+
+- 要决定有限工程能力投向哪里：做、缩小验证、暂缓，还是维持现状；
+- 要把优先级落成范围、依赖、里程碑和可观察结果。
+
+如果方案已经写好，只需要评审证据和交付准备度，用 `tech-review`。如果先要确认某个指标能不能支持行动，用 `metric-decision`。如果要复盘已经发生的事，用 `management-retro`。如果判断已经形成，只需要写成给读者的材料，用 `eng-reporting`。
 
 ## 工作方式
 
@@ -22,4 +29,4 @@ license: MIT
 
 按用户需要交付规划、决策摘要、表格或架构图。短摘要优先写结论、关键依据、会改变决定的未知项、选项差异和一个可逆的下一步，不要把完整方法清单全部展开。
 
-完整判断链、能力地图和资源时钟见 [references/planning_methodology.md](references/planning_methodology.md)。需要架构图时看 [references/architecture_design.md](references/architecture_design.md)，对照示例见 [references/good_bad_examples.md](references/good_bad_examples.md)。
+完整判断链、能力地图和资源时钟见 [references/planning_methodology.md](references/planning_methodology.md)。需要架构图时看 [references/architecture_design.md](references/architecture_design.md)，对照示例见 [references/good_bad_examples.md](references/good_bad_examples.md)。证据状态和交接字段见 [references/decision-and-review-contract.md](references/decision-and-review-contract.md)，只使用会改变当前选择的部分。

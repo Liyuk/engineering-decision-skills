@@ -23,3 +23,4 @@ The original skill folder/frontmatter names were long to type and overlapped in 
 - `metric-decision` can be installed independently and includes its method reference and eval cases.
 - A short command alone does not improve behavior; existing planning/review/reporting instructions and their relevant references must preserve evidence status, bounded conclusions, actionable review findings, and proportionate tone.
 - The shared rubric is not proof of skill quality by itself; behavioral samples still require human review.
+- [ADR 0004](0004-management-retro-fifth-skill.md) later accepted `management-retro` as a fifth skill. The candidate sentence above records this decision's boundary, not the current catalog.

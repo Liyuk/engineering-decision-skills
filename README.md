@@ -8,7 +8,7 @@
 
 Engineering Decision Skills is a small, experimental toolkit for evidence-bounded engineering decisions. It helps technical managers and Tech Leads separate facts, measurements, estimates, inferences, assumptions, and unknowns before turning a metric change, proposal, roadmap, retrospective, or management update into a decision.
 
-The five skills are independently installable. Start with [`metric-decision`](skills/metric-decision/SKILL.md) when a number is driving a decision, or [`tech-review`](skills/tech-review/SKILL.md) when an existing proposal needs an evidence and delivery-readiness review. The repository is currently Chinese-first and has been behavior-smoke-tested primarily with Codex; the cases and limitations are documented rather than presented as proof of general model efficacy.
+The five skills are independently installable. Each description names the neighboring skill to use when a task crosses a boundary. Start with [`metric-decision`](skills/metric-decision/SKILL.md) when a number is driving a decision, or [`tech-review`](skills/tech-review/SKILL.md) when an existing proposal needs an evidence and delivery-readiness review. The repository is currently Chinese-first and has been behavior-smoke-tested primarily with Codex; the cases and limitations are documented rather than presented as proof of general model efficacy.
 
 ## 5 分钟上手
 
@@ -37,13 +37,13 @@ $metric-decision
 
 ## Skills
 
-| Skill | 适用问题 |
-| --- | --- |
-| [`tech-review`](skills/tech-review/SKILL.md) | 现有方案的证据和交付保障足以支持当前决定吗？ |
-| [`tech-planning`](skills/tech-planning/SKILL.md) | 有限能力投向哪里，做、缓、停哪些工程工作？ |
-| [`metric-decision`](skills/metric-decision/SKILL.md) | 一个指标测量什么、变化可信吗、支持什么行动？ |
-| [`management-retro`](skills/management-retro/SKILL.md) | 已完成的工程工作说明了什么，下次保留、改变或停止什么？ |
-| [`eng-reporting`](skills/eng-reporting/SKILL.md) | 怎样把已形成的结论整理成读者可判断、可行动的材料？ |
+| Skill | 适用问题 | 改用 |
+| --- | --- | --- |
+| [`tech-review`](skills/tech-review/SKILL.md) | 现有方案的证据和交付保障足以支持当前决定吗？ | 从零写路线图用 `tech-planning`；解释指标变化用 `metric-decision` |
+| [`tech-planning`](skills/tech-planning/SKILL.md) | 有限能力投向哪里，做、缓、停哪些工程工作？ | 评审已经写好的方案用 `tech-review` |
+| [`metric-decision`](skills/metric-decision/SKILL.md) | 一个指标测量什么、变化可信吗、支持什么行动？ | 整份方案评审用 `tech-review`；改写已确认结论用 `eng-reporting` |
+| [`management-retro`](skills/management-retro/SKILL.md) | 已完成的工程工作说明了什么，下次保留、改变或停止什么？ | 只压缩已确认结论用 `eng-reporting` |
+| [`eng-reporting`](skills/eng-reporting/SKILL.md) | 怎样把已形成的结论整理成读者可判断、可行动的材料？ | 还要判断原因和下一次改变什么，用 `management-retro` |
 
 按当前任务安装和调用单项技能，无须顺序运行整套流程。
 
@@ -61,7 +61,7 @@ $metric-decision
 
 ## 从哪个 Skill 开始
 
-如果你第一次使用，优先从这两个入口开始：
+不确定时先看上表的「改用」列。如果你第一次使用，优先从这两个入口开始：
 
 - `$metric-decision`：当一个数字正在推动决定，但你不确定它是否可比、能否归因或应该采取什么行动。
 - `$tech-review`：当一份方案已经写出来，但你想知道它是否真的有足够证据支持当前决定。
@@ -80,7 +80,7 @@ $metric-decision
 
 ## 安装
 
-每项技能都以 `SKILL.md` 为入口，可直接复制目录到 Codex 的个人技能目录：
+每项技能都以 `SKILL.md` 为入口，目录内包含该技能需要的参考和证据契约副本，复制后不依赖仓库里的其他路径。可直接复制目录到 Codex 的个人技能目录：
 
 ```sh
 mkdir -p ~/.codex/skills
@@ -108,7 +108,7 @@ $tech-review
 
 ## 项目边界
 
-项目聚焦于把技术经理和资深 Tech Lead 的一线判断步骤做成轻量、可单独调用的能力，让证据、未知、取舍和行动在 Agent 输出中保持清楚。当前仓库包含五项 Skill 和 39 个评测案例；评测是有限案例检查，不能证明所有模型、团队或真实场景都会获得同等效果。职责范围不包含代码实现工作流，也不扩展到招聘、绩效、1:1 或团队健康管理。
+项目聚焦于把技术经理和资深 Tech Lead 的一线判断步骤做成轻量、可单独调用的能力，让证据、未知、取舍和行动在 Agent 输出中保持清楚。当前仓库包含五项 Skill 和 42 个评测案例；评测是有限案例检查，不能证明所有模型、团队或真实场景都会获得同等效果。职责范围不包含代码实现工作流，也不扩展到招聘、绩效、1:1 或团队健康管理。
 
 欢迎通过 [贡献指南](CONTRIBUTING.md) 提交边界清楚的案例、评测和文档改进。仓库的 CI 会自动检查 Skill 入口、评测库存和本地链接。
 

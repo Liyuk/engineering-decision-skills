@@ -1,6 +1,6 @@
 ---
 name: management-retro
-description: Use when a user asks to learn from completed engineering work, a project period, or an incident by examining recurring execution and system patterns and choosing what to keep, change, or stop next time.
+description: Use when learning from completed engineering work, a delivery period, or an incident, to separate sequence from evidenced cause and choose what to keep, change, or stop next time. Do not use it to reformat an already settled summary (use eng-reporting), to validate a metric (use metric-decision), to review a proposal that has not been carried out (use tech-review), or to choose future capacity (use tech-planning).
 license: MIT
 compatibility: Works in Agent Skills environments that can read the supplied project notes, records, and references.
 ---
@@ -41,4 +41,4 @@ compatibility: Works in Agent Skills environments that can read the supplied pro
 
 短问题就直接回答，不要为了显得完整而制造固定数量的发现、负责人或行动项。可以得出的结论也可能是：目前没有证据支持某个系统性原因，某项改变应该先试验，或暂时没有需要阻塞决定的学习。
 
-详细判断视角见 [references/eight-judgments.md](references/eight-judgments.md)。
+详细判断视角见 [references/eight-judgments.md](references/eight-judgments.md)。证据状态和交接字段见 [references/decision-and-review-contract.md](references/decision-and-review-contract.md)。
