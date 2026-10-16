@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from scripts.sync_skill_contract import contract_copy_errors
-from scripts.validate_repo import check_skill_package_links, collect_errors
+from scripts.validate_repo import check_skill_package_links, collect_errors, readme_pair_errors
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -65,6 +65,22 @@ class ValidateRepoTest(unittest.TestCase):
             errors = contract_copy_errors(root)
 
         self.assertTrue(any("differs from agent/decision-and-review-contract.md" in error for error in errors))
+
+    def test_reports_readme_section_mismatch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "README.md").write_text(
+                "[Chinese](README.zh-CN.md)\n\n## One\n",
+                encoding="utf-8",
+            )
+            (root / "README.zh-CN.md").write_text(
+                "[英文](README.md)\n\n## 一\n\n## 二\n",
+                encoding="utf-8",
+            )
+
+            errors = readme_pair_errors(root)
+
+        self.assertTrue(any("section count differs" in error for error in errors))
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@ This index is for maintainers. It explains what each archive group means and whe
 
 ## Current source of truth
 
-- User-facing catalog and installation: [`README.md`](../../README.md)
+- User-facing catalog and installation: [`README.md`](../../README.md) (English, default) and [`README.zh-CN.md`](../../README.zh-CN.md) (Chinese)
 - Current release notes: [`CHANGELOG.md`](../../CHANGELOG.md)
 - Shared rules: [`agent/`](../../agent/README.md)
 - Installable packages: [`skills/`](../../skills)
@@ -18,7 +18,7 @@ This index is for maintainers. It explains what each archive group means and whe
 | [`evaluations/`](evaluations) | Eval runs, acceptance records, and regression notes | Historical evidence; not a general efficacy claim | Current cases under `skills/*/evals/` and rubric in [`agent/eval-rubric.md`](../../agent/eval-rubric.md) |
 | [`decisions/`](decisions) | Historical designs and source-to-skill mappings | Design history; later decisions may supersede it | Current structure in [`agent/README.md`](../../agent/README.md) and package entrypoints |
 | [`plans/`](plans) | Implementation plans and execution records | Completed process history | Current files named by the plan |
-| [`publication/`](publication) | Blog and project-description drafts | Draft material, not the repository catalog | [`README.md`](../../README.md) |
+| [`publication/`](publication) | Blog and project-description drafts | Draft material, not the repository catalog | [`README.md`](../../README.md) and [`README.zh-CN.md`](../../README.zh-CN.md) |
 
 ## Important snapshots
 
