@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added weekly Dependabot checks for GitHub Actions, the only package ecosystem in the repository. Minor and patch updates are grouped, and open pull requests are limited to five.
 - Split the user-facing catalog into an English `README.md` and a Chinese `README.zh-CN.md`. Each file is single-language, the section structure matches, and each links to the other at the top.
 - Tightened each skill description and in-skill routing so a task that belongs to a neighboring skill is named explicitly.
 - Aligned `eng-reporting` rewrite examples and templates with the evidence boundary: clearer wording may restate sourced facts only.
