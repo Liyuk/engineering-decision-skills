@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # GitHub Actions is the only package ecosystem in this repository.
+  # Validation scripts use the Python standard library and there is no
+  # requirements.txt, pyproject.toml, package.json, or other manifest.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      github-actions-minor-and-patch:
+        update-types:
+          - minor
+          - patch
